@@ -62,3 +62,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'
 end
+
+gem 'twitter'
