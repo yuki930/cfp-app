@@ -52,7 +52,7 @@ class ProposalsController < ApplicationController
       flash[:info] = setup_flash_message
 
       # notifying to our chat
-      Net::HTTP.post_form URI('https://idobata.io/hook/custom/348d8cbd-83c5-486e-952b-45a679f152e5'), format: 'html', source: %(#{current_user.name} submitted <a href="#{reviewer_event_proposal_url @event, @proposal}">a new proposal</a>!) unless Rails.env.test?
+      Net::HTTP.post_form URI('https://idobata.io/hook/custom/348d8cbd-83c5-486e-952b-45a679f152e5'), format: 'html', source: %(#{current_user.name} submitted <a href="#{reviewer_event_proposal_url @event, @proposal}">a new proposal</a>!) rescue nil unless Rails.env.test?
 
       if current_user.demographics_complete?
         redirect_to proposal_path(slug: @event.slug, uuid: @proposal)
