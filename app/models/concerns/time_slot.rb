@@ -37,7 +37,7 @@ class TimeSlot
   end
 
   def corrected_start_time
-    TimeHelpers.with_correct_time_zone(start_time)
+    start_time
   end
 
 
