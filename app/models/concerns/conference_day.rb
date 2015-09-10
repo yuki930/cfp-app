@@ -3,10 +3,8 @@ class ConferenceDay
   attr_reader :time_slots
 
   def initialize(day, event)
-    start_times = Session.where(conference_day: day, event_id: event.id).pluck(:start_time).uniq.map do |start_time|
-      [TimeHelpers.with_correct_time_zone(start_time), start_time]
-    end.sort_by { |start_time| start_time.first }
-    @time_slots = start_times.map do |_, start_time|
+    start_times = Session.where(conference_day: day, event_id: event.id).order(:start_time).pluck(:start_time).uniq
+    @time_slots = start_times.map do |start_time|
       TimeSlot.new(day, start_time, event)
     end
   end
