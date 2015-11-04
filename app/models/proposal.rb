@@ -42,7 +42,7 @@ class Proposal < ActiveRecord::Base
   scope :scheduled, -> { joins(:session) }
   scope :waitlisted, -> { where(state: WAITLISTED) }
   scope :available, -> do
-    includes(:session).where(sessions: {proposal_id: nil}, state: [ACCEPTED, SOFT_ACCEPTED]).order(:title)
+    includes(:session).where(sessions: {proposal_id: nil}, state: ACCEPTED).order(:title)
   end
   scope :for_state, ->(state) do
     where(state: state).order(:title).includes(:event, {speakers: :person}, :review_taggings)
