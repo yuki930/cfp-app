@@ -1,11 +1,11 @@
 <% unless @event.accept.blank? %>
   <%= Organizer::ProposalMailerTemplate.new(@event.accept, @event, @proposal).render %>
- <% else %>
-    Congratulations! We'd love to include your talk, <%= @proposal.title %>, at <%= @event.name %>.
+<% else %>
+    Congratulations! We'd love to include your LT, <%= @proposal.title %>, at <%= @event.name %>.
 
     TO CONFIRM that you're still willing and able to present this talk, please visit the <%= @proposal.confirm_link %> .
 
-    If you already purchased a ticket for RubyKaigi, please email us at 2015@rubykaigi.org and we will happily refund your ticket.
+    All LT spearkers are required to have their own Kaigi ticket. If you don't have a ticket for RubyKaigi yet, please purchase one at our ticketing site. https://rubykaigi.doorkeeper.jp/events/28463
 
     TO DECLINE (if you're no longer able to give this talk), please visit the <%= @proposal.confirm_link %>, and click the 'Withdraw Proposal' button.
 
