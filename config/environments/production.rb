@@ -103,7 +103,7 @@ Rails.application.configure do
     authentication: :plain,
     user_name: "apikey",
     password: ENV.fetch('SENDGRID_API_KEY', ""),
-    domain: 'heroku.com',
+    domain: 'rubykaigi.org',
     enable_starttls_auto: true
   }
 
