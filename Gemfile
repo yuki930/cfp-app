@@ -57,7 +57,7 @@ group :development, :test do
   gem 'capybara-webkit', '~> 1.6.0' # Requires local installation of QT (`brew install qt`)
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails', '4.5.0'
+  gem 'factory_girl_rails', '4.7.0'
   gem 'growl'
   gem 'guard'
   gem 'guard-rspec'
