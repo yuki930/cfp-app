@@ -24,6 +24,8 @@ class Proposal < ActiveRecord::Base
   validates :abstract, length: {maximum: 1000}
   validates :title, length: {maximum: 60}
 
+  validate :markdowns_can_be_rendered
+
   serialize :last_change
   serialize :proposal_data, Hash
 
@@ -246,6 +248,18 @@ class Proposal < ActiveRecord::Base
 
   def touch_updated_by_speaker_at
     touch(:updated_by_speaker_at) unless @dont_touch_updated_by_speaker_at
+  end
+
+  def markdowns_can_be_rendered
+    Object.new.extend(ApplicationHelper).tap do |h|
+      %i(abstract details pitch).each do |attr|
+        begin
+          h.markdown send(attr)
+        rescue => e
+          errors.add attr, "markdown error: #{e.message}"
+        end
+      end
+    end
   end
 end
 

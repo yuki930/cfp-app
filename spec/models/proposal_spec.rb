@@ -74,6 +74,17 @@ describe Proposal do
       expect(build(:proposal, abstract: "S" * 1000)).to be_valid
       expect(build(:proposal, abstract: "S" * 1001)).not_to be_valid
     end
+
+    it "validates whether markdown does not err" do
+      expect(build(:proposal, abstract: <<-CODE)).to be_valid
+```ruby
+```
+CODE
+      expect(build(:proposal, abstract: <<-CODE)).not_to be_valid
+```c++
+```
+CODE
+    end
   end
 
   describe "state methods" do
