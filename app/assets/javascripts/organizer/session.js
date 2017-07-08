@@ -11,7 +11,7 @@ function initSessionsTable() {
 
 function initSessionTimePickers() {
   $('#session_start_time, #session_end_time').timepicker({
-      timeFormat: 'HH:mm'
+      timeFormat: 'HH:mm', stepMinute: 5
   });
 }
 
