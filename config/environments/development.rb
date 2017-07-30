@@ -57,5 +57,5 @@ Rails.application.configure do
 
   I18n.enforce_available_locales = false
 
-  config.time_zone = ENV.fetch('TIMEZONE') {'Pacific Time (US & Canada)'}
+  config.time_zone = ENV['TIMEZONE'] || 'Tokyo'
 end
