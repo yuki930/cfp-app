@@ -1,6 +1,6 @@
 .navbar {
 	height: 61px;
-	@media (max-width: 768px) {
+	@media (max-width: 690px) {
 		height: 51px;
   }
 }
@@ -34,26 +34,33 @@
   border-bottom-color: $text-color;
 }
 .logo-rubykaigi {
-	margin-top: -10px;
 	width: 255px;
 	height: 42px;
 	@media (max-width: 768px) {
-		margin-top: 0;
 		width: auto;
+		height: 28px;
+  }
+	@media (max-width: 690px) {
 		height: 32px;
   }
 }
 .navbar-brand {
   float: left;
-  padding: 18px 15px;
+  padding: 21px 15px;
+	@media (max-width: 690px) {
+		padding: 15px;
+  }
+	&.is-image {
+		padding: 10px 15px;
+		@media (max-width: 690px) {
+			padding: 9px 15px;
+		}
+	}
 	&:hover {
 		opacity: 0.8;
 	}
-	@media (max-width: 768px) {
-		padding: 9px 15px;
-  }
 }
-@media (min-width: 768px) {
+@media (min-width: 690px) {
   .navbar-nav > li > a {
     padding-top: 20px;
     padding-bottom: 20px;
