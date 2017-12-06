@@ -1,6 +1,6 @@
 .navbar {
 	height: 61px;
-	@media (max-width: 768px) {
+	@media (max-width: 690px) {
 		height: 51px;
   }
 }
@@ -34,26 +34,33 @@
   border-bottom-color: $text-color;
 }
 .logo-rubykaigi {
-	margin-top: -10px;
 	width: 255px;
 	height: 42px;
 	@media (max-width: 768px) {
-		margin-top: 0;
 		width: auto;
+		height: 28px;
+  }
+	@media (max-width: 690px) {
 		height: 32px;
   }
 }
 .navbar-brand {
   float: left;
-  padding: 18px 15px;
+  padding: 21px 15px;
+	@media (max-width: 690px) {
+		padding: 15px;
+  }
+	&.is-image {
+		padding: 10px 15px;
+		@media (max-width: 690px) {
+			padding: 9px 15px;
+		}
+	}
 	&:hover {
 		opacity: 0.8;
 	}
-	@media (max-width: 768px) {
-		padding: 9px 15px;
-  }
 }
-@media (min-width: 768px) {
+@media (min-width: 690px) {
   .navbar-nav > li > a {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -97,4 +104,22 @@
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
     background-color: rgba(white, .7);
+}
+
+.navbar-inverse .navbar-nav > li > a.review_nav,
+.navbar-inverse .navbar-nav > li > a.review_nav:hover,
+.navbar-inverse .navbar-nav > li > a.review_nav:focus,
+.navbar-inverse .navbar-nav > .open > a.review_nav,
+.navbar-inverse .navbar-nav > .open > a.review_nav:hover,
+.navbar-inverse .navbar-nav > .open > a.review_nav:focus {
+	color: #536e9c;
+}
+
+.navbar-inverse .navbar-nav > li > a.organize_nav,
+.navbar-inverse .navbar-nav > li > a.organize_nav:hover,
+.navbar-inverse .navbar-nav > li > a.organize_nav:focus,
+.navbar-inverse .navbar-nav > .open > a.organize_nav,
+.navbar-inverse .navbar-nav > .open > a.organize_nav:hover,
+.navbar-inverse .navbar-nav > .open > a.organize_nav:focus {
+	color: #cb712a;
 }
