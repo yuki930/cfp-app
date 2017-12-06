@@ -1,36 +1,47 @@
 .navbar {
 	height: 61px;
+	@media (max-width: 768px) {
+		height: 51px;
+  }
 }
 .navbar-inverse {
-	background-image: image-url('headerbg_2017.png');
-	background-repeat: repeat-x;
-	background-size: 300px 300px;
+	background-image: image-url('headerbg_2018.png');
+	background-position: center;
+	background-repeat: repeat;
+	background-size: 320px auto;
 	border-color: #fff;
+	background-color: $base-color;
 }
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-nav > li > a:focus {
 	font-family: $font-family;
-  color: $color-black;
+  color: $text-color;
+	transition: background-color .2s ease-out;
 	&:hover {
-		color: $color-black;
-    background: rgba(#fff, 0.6);
+		color: $text-color;
+    background-color: rgba(#fff, 0.4);
 	}
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	color: $color-black;
-	background: rgba($color-pink, 0.2);
+	color: $text-color;
+	background-color: rgba(white, 0.4);
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
 .navbar-inverse .navbar-nav > .open > a .caret, .navbar-inverse .navbar-nav > .open > a:hover .caret, .navbar-inverse .navbar-nav > .open > a:focus .caret,
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
-  border-top-color: $color-black;
-  border-bottom-color: $color-black;
+  border-top-color: $text-color;
+  border-bottom-color: $text-color;
 }
-.logo-rubykaigi2017 {
+.logo-rubykaigi {
 	margin-top: -10px;
 	width: 255px;
 	height: 42px;
+	@media (max-width: 768px) {
+		margin-top: 0;
+		width: auto;
+		height: 32px;
+  }
 }
 .navbar-brand {
   float: left;
@@ -38,6 +49,9 @@
 	&:hover {
 		opacity: 0.8;
 	}
+	@media (max-width: 768px) {
+		padding: 9px 15px;
+  }
 }
 @media (min-width: 768px) {
   .navbar-nav > li > a {
@@ -45,19 +59,25 @@
     padding-bottom: 20px;
   }
 }
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+  color: $text-color;
+  background-color: transparent;
+}
+
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #000;
+  border-color: mix($base-color, #000, 80%);
 }
 
 .navbar-inverse .navbar-brand {
 	font-family: $font-family;
-  color: $color-black;
+  color: $text-color;
 }
 
 @media (max-width: 690px) {
   .navbar-collapse {
-    background-color: #000;
+    background-color: $base-color;
   }
   .navbar-nav li a.review_nav {
     color: #999;
@@ -65,4 +85,16 @@
   .navbar-inverse .navbar-nav .open a:focus {
     background-color: #777;
   }
+}
+
+.navbar-inverse .navbar-toggle {
+  border: none;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: $text-color;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: rgba(white, .7);
 }

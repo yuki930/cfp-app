@@ -5,6 +5,9 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     = stylesheet_link_tag 'application', media: 'all'
+
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto:500i', media: 'all'
+
     = javascript_include_tag 'application'
 
     = javascript_include_tag "//www.google.com/jsapi", "chartkick"
@@ -29,7 +32,7 @@
             = link_to event.name, event_path(slug: event.slug), class: 'navbar-brand'
           - else
             = link_to events_path, class: 'navbar-brand' do
-              = image_tag('rubykaigi2017_logo.png', class: 'logo-rubykaigi2017')
+              = image_tag('rubykaigi2018_logo.png', class: 'logo-rubykaigi')
 
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
