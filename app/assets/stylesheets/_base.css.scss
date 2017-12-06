@@ -1,5 +1,17 @@
 body {
   padding-top: 60px;
+  min-height: 100vh;
+  background-color: $body-color;
+  background-image: image_url("footer-bg.png");
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  background-size: auto 100px;
+  padding-bottom: 120px;
+  @media (max-width: 768px) {
+    padding-top: 50px;
+    background-size: auto 60px;
+    padding-bottom: 70px;
+  }
 }
 .navbar {
   height: 60px;
