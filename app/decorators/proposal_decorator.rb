@@ -86,7 +86,7 @@ class ProposalDecorator < ApplicationDecorator
   end
 
   def confirm_link
-    h.confirm_proposal_url(slug: object.event.slug, uuid: object)
+    h.confirm_proposal_url(slug: object.event.slug, uuid: object, protocol: 'https')
   end
 
   def state_label(small: false, state: nil, show_confirmed: false)

@@ -49,7 +49,7 @@ class Organizer::ProposalDecorator < ProposalDecorator
   end
 
   def confirm_link
-    h.confirm_proposal_url(slug: object.event.slug, uuid: object)
+    h.confirm_proposal_url(slug: object.event.slug, uuid: object, protocol: 'https')
   end
 
   def small_state_buttons
