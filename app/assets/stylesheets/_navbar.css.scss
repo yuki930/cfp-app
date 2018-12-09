@@ -37,13 +37,6 @@
 .logo-rubykaigi {
 	width: 160px;
 	height: 40px;
-	@media (max-width: 768px) {
-		width: auto;
-		height: 28px;
-  }
-	@media (max-width: 690px) {
-		height: 32px;
-  }
 }
 .navbar-brand {
   float: left;
