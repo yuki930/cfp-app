@@ -1,41 +1,42 @@
 .navbar {
-	height: 61px;
+  height: 61px;
+  color: $body-color;
 	@media (max-width: 690px) {
 		height: 51px;
   }
 }
 .navbar-inverse {
-	background-image: image-url('headerbg_2018.png');
-	background-position: center;
-	background-repeat: repeat;
-	background-size: 320px auto;
+	background-image: image-url('headerbg_2019.png');
+  background-size: 685px 230px;
+  background-position: top;
+	background-repeat: repeat-x;
 	border-color: #fff;
 	background-color: $base-color;
 }
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-nav > li > a:focus {
 	font-family: $font-family;
-  color: $text-color;
+  color: $body-color;
 	transition: background-color .2s ease-out;
 	&:hover {
-		color: $text-color;
+		color: $body-color;
     background-color: rgba(#fff, 0.4);
 	}
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	color: $text-color;
+	color: $body-color;
 	background-color: rgba(white, 0.4);
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
 .navbar-inverse .navbar-nav > .open > a .caret, .navbar-inverse .navbar-nav > .open > a:hover .caret, .navbar-inverse .navbar-nav > .open > a:focus .caret,
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
-  border-top-color: $text-color;
-  border-bottom-color: $text-color;
+  border-top-color: $body-color;
+  border-bottom-color: $body-color;
 }
 .logo-rubykaigi {
-	width: 255px;
-	height: 42px;
+	width: 160px;
+	height: 40px;
 	@media (max-width: 768px) {
 		width: auto;
 		height: 28px;
@@ -68,7 +69,7 @@
 }
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-  color: $text-color;
+  color: $body-color;
   background-color: transparent;
 }
 
@@ -79,7 +80,7 @@
 
 .navbar-inverse .navbar-brand {
 	font-family: $font-family;
-  color: $text-color;
+  color: $body-color;
 }
 
 @media (max-width: 690px) {
@@ -99,7 +100,7 @@
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: $text-color;
+  background-color: $body-color;
 }
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
@@ -112,7 +113,7 @@
 .navbar-inverse .navbar-nav > .open > a.review_nav,
 .navbar-inverse .navbar-nav > .open > a.review_nav:hover,
 .navbar-inverse .navbar-nav > .open > a.review_nav:focus {
-	color: #536e9c;
+	color: $review-color;
 }
 
 .navbar-inverse .navbar-nav > li > a.organize_nav,
@@ -121,5 +122,5 @@
 .navbar-inverse .navbar-nav > .open > a.organize_nav,
 .navbar-inverse .navbar-nav > .open > a.organize_nav:hover,
 .navbar-inverse .navbar-nav > .open > a.organize_nav:focus {
-	color: #cb712a;
+	color: $admin-color;
 }
