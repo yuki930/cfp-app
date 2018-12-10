@@ -2,7 +2,6 @@ body {
   padding-top: 60px;
   min-height: 100vh;
   background-color: $body-color;
-  background-image: image_url("footer-bg.png");
   background-position: bottom center;
   background-repeat: repeat-x;
   background-size: auto 100px;
@@ -228,7 +227,6 @@ h3.tags {
   }
 }
 
-
 //datepicker
 .ui-datepicker {
   z-index: 10000 !important;
@@ -248,15 +246,4 @@ h3.tags {
 
 .inline-block {
   display: inline-block;
-}
-
-.btn-success {
-  color: white;
-  background-color: $color-pink;
-  border-color: $color-pink;
-}
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
-  color: white;
-  background-color: darken($color-pink, 10%);
-  border-color: darken($color-pink, 10%);
 }

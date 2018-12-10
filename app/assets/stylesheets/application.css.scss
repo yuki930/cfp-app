@@ -6,11 +6,13 @@
 @import "bootstrap-multiselect";
 @import "jquery-ui-timepicker-addon";
 
-$body-color: #fffef0;
-$text-color: #444;
-$base-color: #eae7ba;
-$font-family: 'Roboto', "courier new", monospace;
-$color-pink: #ED9494;
+// colors
+$body-color: #e8e7ec;
+$text-color: #1f1448;
+$base-color: #100830;
+$font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$review-color: #00b9d5;
+$admin-color: #ff8600;
 
 // application styles
 @import "base";
