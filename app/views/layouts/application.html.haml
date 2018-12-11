@@ -51,7 +51,7 @@
                     Review
                     %b.caret
                   %ul.dropdown-menu
-                    - current_user.reviewer_events.each do |event|
+                    - current_user.reviewer_events.recent.each do |event|
                       -unless event.archived?
                         -if current_user.organizer_for_event?(event)
                           %li= link_to event, reviewer_event_proposals_path(event)
@@ -65,7 +65,7 @@
                     Organize
                     %b.caret
                   %ul.dropdown-menu
-                    - current_user.organizer_events.each do |event|
+                    - current_user.organizer_events.recent.each do |event|
                       %li
                         -unless event.archived?
                           = link_to event, organizer_event_path(event)
