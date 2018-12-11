@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   serialize :custom_fields, Array
 
 
-  scope :recent, -> { order('name ASC') }
+  scope :recent, -> { order('name DESC') }
   scope :live, -> { where("state = 'open' and (closes_at is null or closes_at > ?)", Time.current).order('closes_at ASC') }
 
   validates :name, :contact_email, presence: true
