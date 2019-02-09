@@ -9,7 +9,6 @@ class Organizer::ProposalMailerTemplate
   end
 
   def render
-    format_paragraphs
     replace_link_tags
     replace_simple_tags
     @template.html_safe
@@ -19,18 +18,11 @@ class Organizer::ProposalMailerTemplate
 
   attr_reader :tags
 
-  # Format paragraphs broken by two or more newlines
-  def format_paragraphs
-    @template = @template
-      .split(/(?:\r?\n){2,}/)
-      .map { |line| "#{line}" }
-      .join("\n")
-  end
 
   # ::link text|tag_for_url::
   def replace_link_tags
     @template = @template.gsub(/::([^:]+?)\|([^:]+?)::/) do
-      "<a href='#{substitute_tag($2)}'>#{$1}</a>"
+      "[#{$1}](#{substitute_tag($2)})"
     end
   end
 
