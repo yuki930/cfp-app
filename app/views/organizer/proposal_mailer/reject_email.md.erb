@@ -1,6 +1,6 @@
 <% unless @event.reject.blank? %>
   <%= Organizer::ProposalMailerTemplate.new(@event.reject, @event,
-      @proposal, [ :proposal_title ]).render %>
+      @proposal, %w(proposal_title)).render %>
 <% else %>
     Thank you for submitting your proposal to <%= @event.name %>. Our Program Committee received a large number of high-quality talk submissions this year. On one hand, that has allowed us to put together a very exciting program.
 
