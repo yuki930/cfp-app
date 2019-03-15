@@ -44,9 +44,11 @@ class InvitationsController < ApplicationController
       flash[:info] = "You have refused this invitation."
       redirect_to :back
     else
-      @invitation.accept
-      flash[:info] = "You have accepted this invitation."
-      @invitation.proposal.speakers.create(person: current_user)
+      ActiveRecord::Base.transaction do
+        @invitation.accept!
+        flash[:info] = "You have accepted this invitation."
+        @invitation.proposal.speakers.create!(person: current_user)
+      end
       redirect_to edit_proposal_url(slug: @invitation.proposal.event.slug,
                                      uuid: @invitation.proposal)
     end

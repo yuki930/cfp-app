@@ -27,6 +27,10 @@ module Invitable
     self.update(state: State::ACCEPTED)
   end
 
+  def accept!
+    self.update!(state: State::ACCEPTED)
+  end
+
   def pending?
     state == State::PENDING
   end
