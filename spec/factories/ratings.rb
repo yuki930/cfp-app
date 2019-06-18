@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :rating do
     association :proposal
-    association :person
-    score 3
+    association :user
+    score { 3 }
   end
 end

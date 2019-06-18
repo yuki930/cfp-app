@@ -1,10 +1,19 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :notification do
-    person nil
-    message "MyString"
-    read_at DateTime.now
-    target_path 'MyString'
+    user { nil }
+    message { "MyString" }
+    read_at { DateTime.now }
+    target_path { '/events' }
+
+    trait :unread do
+      read_at { nil }
+    end
+
+    trait :with_long_message do
+      message { "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ut nobis nemo dolore architecto aliquam." }
+    end
+
   end
 end
