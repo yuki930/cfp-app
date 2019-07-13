@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "speakers", id: :serial, force: :cascade do |t|
+  t.integer "proposal_id"
+  t.integer "person_id"
+  t.text "bio"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["person_id"], name: "index_speakers_on_person_id"
+  t.index ["proposal_id"], name: "index_speakers_on_proposal_id"
+end

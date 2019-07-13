@@ -52,6 +52,7 @@ group :development do
   gem 'html2haml', '~> 2.2.0'
   gem 'haml-rails'
   gem 'spring-commands-rspec', require: false
+  gem 'ridgepole'
   gem 'web-console'
 end
 

@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "tracks", id: :serial, force: :cascade do |t|
+  t.text "name"
+  t.integer "event_id"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["event_id"], name: "index_tracks_on_event_id"
+end
+
+add_foreign_key "session_formats", "events"

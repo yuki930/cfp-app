@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "invitations", id: :serial, force: :cascade do |t|
+  t.integer "proposal_id"
+  t.integer "person_id"
+  t.string "email", limit: 255
+  t.string "state", limit: 255, default: "pending"
+  t.string "slug", limit: 255
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["person_id"], name: "index_invitations_on_person_id"
+  t.index ["proposal_id", "email"], name: "index_invitations_on_proposal_id_and_email", unique: true
+  t.index ["proposal_id"], name: "index_invitations_on_proposal_id"
+  t.index ["slug"], name: "index_invitations_on_slug", unique: true
+end

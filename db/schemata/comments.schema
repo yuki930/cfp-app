@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "comments", id: :serial, force: :cascade do |t|
+  t.integer "proposal_id"
+  t.integer "person_id"
+  t.integer "parent_id"
+  t.text "body"
+  t.string "type", limit: 255
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["person_id"], name: "index_comments_on_person_id"
+  t.index ["proposal_id"], name: "index_comments_on_proposal_id"
+end

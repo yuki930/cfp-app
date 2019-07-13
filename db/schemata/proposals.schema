@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "proposals", id: :serial, force: :cascade do |t|
+  t.integer "event_id"
+  t.string "state", limit: 255, default: "submitted"
+  t.string "uuid", limit: 255
+  t.string "title", limit: 255
+  t.text "abstract"
+  t.text "details"
+  t.text "pitch"
+  t.text "last_change"
+  t.text "confirmation_notes"
+  t.datetime "confirmed_at"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.datetime "updated_by_speaker_at"
+  t.text "proposal_data"
+  t.index ["event_id"], name: "index_proposals_on_event_id"
+  t.index ["uuid"], name: "index_proposals_on_uuid", unique: true
+end

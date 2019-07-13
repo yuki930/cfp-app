@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "participants", id: :serial, force: :cascade do |t|
+  t.integer "event_id"
+  t.integer "person_id"
+  t.string "role", limit: 255
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.boolean "notifications", default: true
+  t.index ["event_id"], name: "index_participants_on_event_id"
+  t.index ["person_id"], name: "index_participants_on_person_id"
+end
