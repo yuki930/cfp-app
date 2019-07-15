@@ -2,10 +2,12 @@
 # vi: set ft=ruby :
 create_table "notifications", id: :serial, force: :cascade do |t|
   t.integer "person_id"
+  t.integer "user_id"
   t.string "message", limit: 255
   t.datetime "read_at"
   t.string "target_path", limit: 255
   t.datetime "created_at"
   t.datetime "updated_at"
   t.index ["person_id"], name: "index_notifications_on_person_id"
+  t.index ["user_id"], name: "index_notifications_on_user_id"
 end
