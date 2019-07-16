@@ -3,6 +3,8 @@
 create_table "tracks", id: :serial, force: :cascade do |t|
   t.text "name"
   t.integer "event_id"
+  t.string "description"
+  t.text "guidelines"
   t.datetime "created_at"
   t.datetime "updated_at"
   t.index ["event_id"], name: "index_tracks_on_event_id"
