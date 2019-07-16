@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
 
   belongs_to :proposal
   belongs_to :user
+  belongs_to :person
 
   validates :proposal, :user, presence: true
   validates :body, presence: true
