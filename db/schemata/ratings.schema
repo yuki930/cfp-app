@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "ratings", id: :serial, force: :cascade do |t|
+  t.integer "proposal_id"
+  t.integer "person_id"
+  t.integer "user_id"
+  t.integer "score"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["person_id"], name: "index_ratings_on_person_id"
+  t.index ["user_id"], name: "index_ratings_on_user_id"
+  t.index ["proposal_id"], name: "index_ratings_on_proposal_id"
+end

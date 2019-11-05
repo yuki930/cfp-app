@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "session_formats", force: :cascade do |t|
+  t.bigint "event_id"
+  t.string "name"
+  t.string "description"
+  t.integer "duration"
+  t.boolean "public", default: true
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["event_id"], name: "index_session_formats_on_event_id"
+end

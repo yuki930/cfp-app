@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "sessions", id: :serial, force: :cascade do |t|
+  t.integer "conference_day"
+  t.time "start_time"
+  t.time "end_time"
+  t.text "title"
+  t.text "description"
+  t.text "presenter"
+  t.integer "room_id"
+  t.integer "track_id"
+  t.integer "proposal_id"
+  t.integer "event_id"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["event_id"], name: "index_sessions_on_event_id"
+end

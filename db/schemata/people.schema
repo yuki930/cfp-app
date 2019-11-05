@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "people", id: :serial, force: :cascade do |t|
+  t.string "name", limit: 255
+  t.string "email", limit: 255
+  t.text "bio"
+  t.hstore "demographics"
+  t.boolean "admin", default: false
+  t.datetime "created_at"
+  t.datetime "updated_at"
+end

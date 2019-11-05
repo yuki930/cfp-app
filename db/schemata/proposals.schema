@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "proposals", force: :cascade do |t|
+  t.bigint "event_id"
+  t.string "state", default: "submitted"
+  t.string "uuid"
+  t.string "title"
+  t.bigint "session_format_id"
+  t.bigint "track_id"
+  t.text "abstract"
+  t.text "details"
+  t.text "pitch"
+  t.text "last_change"
+  t.text "confirmation_notes"
+  t.text "proposal_data"
+  t.datetime "updated_by_speaker_at"
+  t.datetime "confirmed_at"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["event_id"], name: "index_proposals_on_event_id"
+  t.index ["session_format_id"], name: "index_proposals_on_session_format_id"
+  t.index ["track_id"], name: "index_proposals_on_track_id"
+  t.index ["uuid"], name: "index_proposals_on_uuid", unique: true
+end
