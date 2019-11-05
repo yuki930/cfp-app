@@ -1,34 +1,24 @@
-%h3= proposal.speakers.one? ? 'Speaker' : 'Speakers'
-- proposal.speakers.each do |speaker|
-  .markdown{ data: { 'field-id' => 'proposal_speaker_name' } }
-    %strong= link_to (speaker.person && speaker.name) || 'somebody', [:organizer, proposal.event, speaker]
-  GitHub:&nbsp;
-  = speaker.link_to_github
-  \&nbsp;/&nbsp;
-  Twitter:&nbsp;
-  = speaker.link_to_twitter
-  %p= speaker.bio
+.proposal-section
+  %h3.control-label Abstract
+  .markdown{ data: { 'field-id' => 'proposal_abstract' } }
+    = proposal.abstract_markdown
 
-%h3 Title
-.markdown{ data: { 'field-id' => 'proposal_title' } }
-  = proposal.title
+%h2.fieldset-legend For Review Committee
 
-%h3 Abstract
-.markdown{ data: { 'field-id' => 'proposal_abstract' } }
-  = proposal.compiled_abstract rescue proposal.abstract
+.proposal-section
+  %h3.control-label Details
+  .markdown{ data: { 'field-id' => 'proposal_details' } }
+    = proposal.details_markdown
 
-%h3 Details
-.markdown{ data: { 'field-id' => 'proposal_details' } }
-  = proposal.compiled_details rescue proposal.details
+.proposal-section
+  %h3.control-label Pitch
+  .markdown{ data: { 'field-id' => 'proposal_pitch' } }
+    =proposal.pitch_markdown
 
-%h3 Pitch
-.markdown{ data: { 'field-id' => 'proposal_pitch' } }
-  =proposal.compiled_pitch rescue proposal.pitch
-
-  - if proposal.custom_fields.any?
-    - proposal.proposal_data[:custom_fields].select do |key,value|
-      %h3= key.capitalize
+- if proposal.custom_fields.any?
+  - proposal.proposal_data[:custom_fields].select do |key,value|
+    .proposal-section
+      %h3.control-label= key.capitalize
       %div
       = value.capitalize
       %div
-

@@ -1,0 +1,10 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "taggings", id: :serial, force: :cascade do |t|
+  t.integer "proposal_id"
+  t.string "tag", limit: 255
+  t.boolean "internal", default: false
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.index ["proposal_id"], name: "index_taggings_on_proposal_id"
+end

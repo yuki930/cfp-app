@@ -1,16 +1,17 @@
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
 
   belongs_to :proposal
+  belongs_to :user
   belongs_to :person
 
-  validates :proposal, :person, presence: true
+  validates :proposal, :user, presence: true
   validates :body, presence: true
 
   def public?
     type == "PublicComment"
   end
-end
 
+end
 
 # == Schema Information
 #
@@ -18,7 +19,7 @@ end
 #
 #  id          :integer          not null, primary key
 #  proposal_id :integer
-#  person_id   :integer
+#  user_id     :integer
 #  parent_id   :integer
 #  body        :text
 #  type        :string
@@ -27,6 +28,6 @@ end
 #
 # Indexes
 #
-#  index_comments_on_person_id    (person_id)
 #  index_comments_on_proposal_id  (proposal_id)
+#  index_comments_on_user_id      (user_id)
 #

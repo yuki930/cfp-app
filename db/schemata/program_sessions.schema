@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "program_sessions", force: :cascade do |t|
+  t.bigint "event_id"
+  t.bigint "proposal_id"
+  t.text "title"
+  t.text "abstract"
+  t.bigint "track_id"
+  t.bigint "session_format_id"
+  t.text "state", default: "draft"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["event_id"], name: "index_program_sessions_on_event_id"
+  t.index ["proposal_id"], name: "index_program_sessions_on_proposal_id"
+  t.index ["session_format_id"], name: "index_program_sessions_on_session_format_id"
+  t.index ["track_id"], name: "index_program_sessions_on_track_id"
+end

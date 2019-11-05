@@ -1,0 +1,18 @@
+  create_table "teammates", id: :serial, force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.string "role"
+    t.string "email"
+    t.string "state"
+    t.string "token"
+    t.datetime "invited_at"
+    t.datetime "accepted_at"
+    t.datetime "declined_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "notification_preference", default: "all"
+    t.string "mention_name"
+    t.index ["event_id"], name: "index_teammates_on_event_id"
+    t.index ["user_id"], name: "index_teammates_on_user_id"
+  end
+
