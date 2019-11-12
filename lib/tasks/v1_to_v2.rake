@@ -81,14 +81,16 @@ namespace :v1_to_v2 do
         )
         # これをしないと devise.gem がメールを送ってしまう。
         # PersonからUserへの移行なのでv1の時代からログインが出来ていたアカウントは確認済みにする。
+        begin
         user.skip_confirmation_notification!
         user.skip_confirmation!
         user.save!
-      rescue => e
-        p "%" * 40
-        p person
-        p "%" * 40
-        raise e
+        rescue => e
+          p "%" * 40
+          p person
+          p "%" * 40
+          raise e
+        end
       end
 
       # users テーブルを id を指定して作成したのでシーケンスの値を手動で更新します
@@ -115,6 +117,7 @@ namespace :v1_to_v2 do
       # ToDo アカウントが生成されたなかった場合を考慮する
       # Speaker.where.not(person_id: [nil, 171, 172]).find_each do |s|
       Speaker.where.not(person_id: nil).find_each do |s|
+        begin
         s.user_id = s.person_id
         s.event_id = s.proposal.event.id
         s.speaker_name = s.user.name
@@ -125,6 +128,7 @@ namespace :v1_to_v2 do
           p s
           p "%" * 10
           raise e
+        end
       end
 
       # 171, 172の方はそれぞれ 179, 252と同一のアカウントとなっている、かつログインできるアカウントも後者のidです
@@ -138,6 +142,7 @@ namespace :v1_to_v2 do
 
       # Comment.where.not(person_id: [5]).find_each do |c|
       Comment.find_each do |c|
+        begin
         c.user_id = c.person_id
         c.save!
         rescue => e
@@ -145,6 +150,7 @@ namespace :v1_to_v2 do
           p c
           p "%" * 10
           raise e
+        end
       end
     end
   end
