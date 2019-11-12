@@ -36,6 +36,7 @@ gem 'faker'
 gem 'actionview-encoded_mail_to'
 gem 'nokogiri', '~> 1.8.1'
 gem 'bootsnap', require: false
+gem 'ridgepole'
 
 group :production do
   gem 'rails_12factor'
@@ -52,7 +53,6 @@ group :development do
   gem 'html2haml', '~> 2.2.0'
   gem 'haml-rails'
   gem 'spring-commands-rspec', require: false
-  gem 'ridgepole'
   gem 'web-console'
 end
 

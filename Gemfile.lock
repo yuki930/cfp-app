@@ -477,8 +477,5 @@ DEPENDENCIES
   underscore-rails
   web-console
 
-RUBY VERSION
-   ruby 2.4.4p296
-
 BUNDLED WITH
-   1.17.1
+   1.17.2
