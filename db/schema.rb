@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_071747) do
     t.datetime "confirmed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float "average_rating"
     t.index ["event_id"], name: "index_proposals_on_event_id"
     t.index ["session_format_id"], name: "index_proposals_on_session_format_id"
     t.index ["track_id"], name: "index_proposals_on_track_id"
