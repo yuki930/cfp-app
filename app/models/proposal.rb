@@ -325,6 +325,7 @@ end
 #  confirmed_at          :datetime
 #  created_at            :datetime
 #  updated_at            :datetime
+#  average_rating        :float
 #
 # Indexes
 #
