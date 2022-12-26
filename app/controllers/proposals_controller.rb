@@ -147,18 +147,11 @@ class ProposalsController < ApplicationController
   def hack_location_taggings
     speaker = @proposal.speakers.first
     speaker.proposals.where(event: @proposal.event).each do |p|
-      p.taggings.where(
-        internal: true,
-        tag: ["providence", "houston", "providence pref", "houston pref"]
-      ).destroy_all
-      if speaker.houston_or_providence =~ /Only RubyConf in Texas/
+      p.taggings.where(internal: true, tag: %w(providence houston)).destroy_all
+      if speaker.houston_or_providence =~ /texas/i
         p.taggings.create(tag: "houston", internal: true)
-      elsif speaker.houston_or_providence =~ /Only RubyConf Mini in Rhode Island/
-        p.taggings.create(tag: "providence", internal: true)
-      elsif speaker.houston_or_providence =~ /Prefer RubyConf in Texas/
-        p.taggings.create(tag: "houston pref", internal: true)
       else
-        p.taggings.create(tag: "providence pref", internal: true)
+        p.taggings.create(tag: "providence", internal: true)
       end
     end
   end
